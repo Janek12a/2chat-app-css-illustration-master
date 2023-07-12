@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  font-family: "Rubik", sans-serif;
+  background-color: hsl(270, 20%, 96%);
+  z-index: -1;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  left: -50%;
+  background-image: linear-gradient(to left, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  z-index: 1;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.phone {
+  position: relative;
+  width: 260px;
+  height: 500px;
+  margin-top: 8em;
+  border: 10px solid hsl(0, 0%, 100%);
+  border-radius: 30px;
+  background-color: hsl(270, 20%, 96%);
+  overflow: hidden;
+  z-index: 10;
+}
+.phone__notch {
+  position: absolute;
+  top: -2.2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 6%;
+  margin-bottom: 0.5em;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 25px;
+  z-index: 1;
+}
+.phone__customer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  height: 12%;
+  padding-left: 1em;
+  padding-top: 2em;
+  background-image: linear-gradient(to left, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  color: hsl(0, 0%, 100%);
+  z-index: 0;
+}
+.phone__customer .customer-img {
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 50%;
+  width: 2.5em;
+}
+.phone__customer .customer-details .name {
+  padding-bottom: 0.2em;
+  color: hsl(0, 0%, 100%);
+}
+.phone__customer .customer-details .status {
+  font-size: 0.7rem;
+  color: hsl(276, 100%, 81%);
+}
+.phone__customer .right-icon {
+  position: absolute;
+  right: 2em;
+}
+.phone__messages {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+.phone__message {
+  padding: 0.7em;
+  margin-bottom: 0.8em;
+  border-radius: 10px;
+}
+.phone__message--me {
+  margin-right: 9em;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: hsl(276, 55%, 52%);
+  background-color: hsla(276, 55%, 52%, 0.1);
+}
+.phone__message--customer {
+  align-self: flex-end;
+  margin-right: 0;
+  margin-left: 9em;
+  color: 271, 15%, 43%;
+  background-color: hsl(0, 0%, 100%);
+}
+.phone .customer-dog {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-right: 0.2em;
+  margin-left: 5em;
+  background: none;
+  background: none;
+}
+.phone .customer-dog .dog-img {
+  width: 28%;
+  height: 100%;
+  padding-left: 0.2em;
+  border-radius: 10px;
+}
+.phone .offers {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 75%;
+  gap: 0.5em;
+  padding: 1em;
+  color: hsla(0, 0%, 100%, 0.7);
+  background-image: linear-gradient(to left, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+}
+.phone .offers__circle {
+  width: 15px;
+  height: 15px;
+  border: 2px solid hsl(276, 100%, 81%);
+  border-radius: 50%;
+}
+.phone .offers__price {
+  position: absolute;
+  right: 1em;
+  color: hsl(0, 0%, 100%);
+  font-size: 1.6em;
+  font-weight: bold;
+}
+.phone__write {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 2em;
+  height: 4em;
+  margin: 0.1em 0;
+  color: hsl(206, 6%, 79%);
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 40px;
+}
+.phone__write .arow-circle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0.6em;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: hsl(271, 36%, 24%);
+  color: hsl(0, 0%, 100%);
+}
+
+.bottom {
+  margin: 2em 2.5em;
+  text-align: center;
+  font-size: 1.6rem;
+  z-index: 10;
+}
+.bottom__title {
+  padding: 1em;
+  color: hsl(271, 36%, 24%);
+}
+.bottom__text {
+  color: hsl(270, 7%, 64%);
+  line-height: 1.8em;
+}
+
+@media (min-width: 996px) {
+  .background {
+    width: 38%;
+    height: 80%;
+    left: -10%;
+    top: 0;
+    border-bottom-right-radius: 60%;
+    border-bottom-left-radius: 60%;
+  }
+  .main {
+    flex-direction: row;
+  }
+  .phone {
+    align-self: center;
+    margin-left: 16em;
+  }
+  .bottom {
+    width: 40%;
+    padding: 3em;
+    text-align: left;
+  }
+  .bottom__title {
+    padding: 0.5em 0;
+    font-size: 4rem;
+  }
+}/*# sourceMappingURL=main1.css.map */

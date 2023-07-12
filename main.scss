@@ -1,0 +1,259 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+$white: hsl(0, 0%, 100%);
+$app-bgc: hsl(270, 20%, 96%);
+$pale-violet: hsl(276, 100%, 81%);
+$chat-left: hsl(276, 55%, 52%);
+$chat-left-bgc: hsl(276, 55%, 52%, 0.1);
+$right-chat: (271, 15%, 43%);
+$circle: hsl(0, 0%, 100%, 0.7);
+$submit-button: hsl(271, 36%, 24%);
+$main-heading: hsl(271, 36%, 24%);
+$placeholder: hsl(206, 6%, 79%);
+$paragraph: hsl(270, 7%, 64%);
+
+$bgc-gradient: linear-gradient(to left, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+$app-gradient: linear-gradient(to left, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+$message-gradient:linear-gradient(to left, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+
+body {
+	position: relative;
+	font-family: 'Rubik', sans-serif;
+	background-color: $app-bgc;
+	z-index: -1;
+}
+
+.background {
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	left: -50%;
+	background-image: $bgc-gradient;
+	border-bottom-right-radius: 50%;
+	border-bottom-left-radius: 50%;
+	z-index: 1;
+}
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 100vh;
+}
+
+// ---------DEVICE SCREEN---------
+.phone {
+	position: relative;
+	width: 260px;
+	height: 500px;
+	margin-top: 8em;
+	border: 10px solid $white;
+	border-radius: 30px;
+	background-color: $app-bgc;
+	overflow: hidden;
+	z-index: 10;
+
+	&__notch {
+		position: absolute;
+		top: -2.2%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60%;
+		height: 6%;
+		margin-bottom: 0.5em;
+		background-color: $white;
+		border-radius: 25px;
+		z-index: 1;
+	}
+
+	&__customer {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 1em;
+		height: 12%;
+		padding-left: 1em;
+		padding-top: 2em;
+		background-image: $app-gradient;
+		color: $white;
+		z-index: 0;
+
+		.customer-img {
+			border: 2px solid $white;
+			border-radius: 50%;
+			width: 2.5em;
+		}
+
+		.customer-details {
+			.name {
+				padding-bottom: 0.2em;
+				color: $white;
+			}
+
+			.status {
+				font-size: 0.7rem;
+				color: $pale-violet;
+			}
+		}
+		.right-icon {
+			position: absolute;
+			right: 2em;
+		}
+	}
+
+	//---------MESSAGE SECTION-----------
+
+	&__messages {
+		display: flex;
+		flex-direction: column;
+		padding: 0.5em;
+	}
+
+	&__message {
+		padding: 0.7em;
+		margin-bottom: 0.8em;
+		border-radius: 10px;
+
+		&--me {
+			margin-right: 9em;
+			font-size: 0.95rem;
+			font-weight: 400;
+			color: $chat-left;
+			background-color: $chat-left-bgc;
+		}
+		&--customer {
+			align-self: flex-end;
+			margin-right: 0;
+			margin-left: 9em;
+			color: $right-chat;
+			background-color: $white;
+		}
+	}
+
+	.customer-dog {
+		display: flex;
+		flex-direction: row;
+		justify-content: end;
+		margin-right: 0.2em;
+		margin-left: 5em;
+		background: none;
+		background: none;
+
+		.dog-img {
+			width: 28%;
+			height: 100%;
+			padding-left: 0.2em;
+			border-radius: 10px;
+		}
+	}
+
+	.offers {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		width: 75%;
+		gap: 0.5em;
+		padding: 1em;
+		color: $circle;
+		background-image: $message-gradient;
+
+		&__circle {
+			width: 15px;
+			height: 15px;
+			border: 2px solid $pale-violet;
+			border-radius: 50%;
+		}
+
+		&__price {
+			position: absolute;
+			right: 1em;
+			color: $white;
+			font-size: 1.6em;
+			font-weight: bold;
+		}
+	}
+
+	&__write {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 0 2em;
+		height: 4em;
+		margin: 0.1em 0;
+		color: $placeholder;
+		background-color: $white;
+		border-radius: 40px;
+
+		.arow-circle {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			right: 0.6em;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background-color: $submit-button;
+			color: $white;
+		}
+	}
+}
+
+.bottom {
+	margin: 2em 2.5em;
+	text-align: center;
+	font-size: 1.6rem;
+	z-index: 10;
+
+	&__title {
+		padding: 1em;
+		color: $main-heading;
+	}
+
+	&__text {
+		color: $paragraph;
+		line-height: 1.8em;
+	}
+}
+
+@media (min-width: 996px) {
+	.background {
+		width: 38%;
+		height: 80%;
+		left: -10%;
+		top: 0;
+		border-bottom-right-radius: 60%;
+		border-bottom-left-radius: 60%;
+	}
+	.main {
+		flex-direction: row;
+	}
+
+	.phone {
+		align-self: center;
+		margin-left: 16em;
+	}
+
+	.bottom {
+		width: 40%;
+		padding: 3em;
+		text-align: left;
+
+		&__title {
+			padding: 0.5em 0;
+			font-size: 4rem;
+		}
+	}
+}
